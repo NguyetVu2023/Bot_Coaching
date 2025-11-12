@@ -1,71 +1,62 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Báo cáo đào tạo</title>
   <style>
     :root {
-      --baseW: 500; /* chiều rộng canvas trong Power BI */
-      --baseH: 900; /* chiều cao canvas */
+      --baseW: 500; /* Chiều rộng canvas Power BI */
+      --baseH: 900; /* Chiều cao canvas Power BI */
     }
     html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
       height: 100%;
-      overflow: hidden;
+      width: 100%;
       background: #001F3F;
+      overflow: hidden;
     }
-    .stage {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-    }
-    .frame {
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: calc(var(--baseW) * 1px);
       height: calc(var(--baseH) * 1px);
-      transform-origin: top center;
+      transform-origin: center center;
     }
-    .frame iframe {
+    iframe {
+      border: none;
       width: 100%;
       height: 100%;
-      border: none;
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="stage">
-    <div class="frame">
-      <iframe
-        src="https://app.powerbi.com/view?r=eyJrIjoiYmRiNGZlNTgtMGI2OS00OWYyLThjMjYtY2E3YjZkMmZlNTExIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
+  <div class="wrapper">
+    <iframe
+      src="https://app.powerbi.com/view?r=eyJrIjoiYmRiNGZlNTgtMGI2OS00OWYyLThjMjYtY2E3YjZkMmZlNTExIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
   </div>
 
   <script>
-    // --- Tự động scale theo kích thước màn hình ---
-    (function() {
-      const baseW = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--baseW')) || 500;
-      const baseH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--baseH')) || 900;
-      const frame = document.querySelector('.frame');
+    const baseW = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--baseW')) || 500;
+    const baseH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--baseH')) || 900;
+    const wrapper = document.querySelector('.wrapper');
 
-      function fit() {
-        const vw = window.innerWidth;
-        const vh = window.innerHeight;
-        // phóng to vừa khung nhưng không méo tỉ lệ
-        const scale = Math.min(vw / baseW, vh / baseH);
-        frame.style.transform = `scale(${scale})`;
-      }
+    function fit() {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const scale = Math.min(vw / baseW, vh / baseH);
+      wrapper.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    }
 
-      window.addEventListener('resize', fit, { passive: true });
-      window.addEventListener('orientationchange', fit, { passive: true });
-      fit();
-    })();
+    window.addEventListener('resize', fit, { passive: true });
+    window.addEventListener('orientationchange', fit, { passive: true });
+    fit();
   </script>
 </body>
 </html>
