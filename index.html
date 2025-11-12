@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Báo cáo đào tạo</title>
   <style>
-    :root { --baseW: 500; --baseH: 900; } /* KHỚP canvas bạn thiết kế */
+    :root {
+      --baseW: 500; /* kích thước canvas bạn thiết kế trong Power BI */
+      --baseH: 900;
+    }
     html, body {
-      margin: 0; padding: 0; height: 100%; width: 100%;
-      background: #001F3F; overflow: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #001F3F; /* màu nền tối đồng bộ Power BI */
     }
     .stage {
-      position: fixed; inset: 0; display: flex;
-      align-items: flex-start; justify-content: center;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      height: 100%;
+      position: relative;
     }
     .frame {
       width: calc(var(--baseW) * 1px);
       height: calc(var(--baseH) * 1px);
       transform-origin: top center;
-      box-shadow: 0 0 0 rgba(0,0,0,0); /* không viền */
+      box-shadow: none;
     }
     .frame iframe {
-      width: 100%; height: 100%; border: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
   <div class="stage">
     <div class="frame">
-      <iframe
-        src="https://app.powerbi.com/view?r=eyJrIjoiYmRiNGZlNTgtMGI2OS00OWYyLThjMjYtY2E3YjZkMmZlNTExIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D"
+      <iframe 
+        src="https://app.powerbi.com/view?r=eyJrIjoiYmRiNGZlNTgtMGI2OS00OWYyLThjMjYtY2E3YjZkMmZlNTExIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true" 
         allowfullscreen
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
@@ -37,7 +50,7 @@
   </div>
 
   <script>
-    (function () {
+    (function() {
       const baseW = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--baseW')) || 500;
       const baseH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--baseH')) || 900;
       const frame = document.querySelector('.frame');
@@ -48,6 +61,7 @@
         const scale = Math.min(vw / baseW, vh / baseH);
         frame.style.transform = `scale(${scale})`;
       }
+
       window.addEventListener('resize', fit, { passive: true });
       window.addEventListener('orientationchange', fit, { passive: true });
       fit();
