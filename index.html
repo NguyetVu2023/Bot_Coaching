@@ -4,33 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Báo cáo đào tạo</title>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      const isMobile = /android|iphone|ipad|ipod|opera mini|iemobile|mobile/i.test(userAgent);
-
-      // ✅ Tự động chuyển hướng
-      if (isMobile) {
-        window.location.href = "https://app.powerbi.com/view?r=eyJrIjoiYmRiNGZlNTgtMGI2OS00OWYyLThjMjYtY2E3YjZkMmZlNTExIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true";
-      } else {
-        window.location.href = "https://app.powerbi.com/view?r=eyJrIjoiZjRlMzE5ODAtYzQ2MS00NjU5LWE5MjgtZDQxMmYyZGNkYzBkIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true";
-      }
-    });
-  </script>
   <style>
     html, body {
-      height: 100%;
       margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
       background: #001F3F;
-      color: white;
-      font-family: sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    }
+    iframe {
+      border: none;
+      width: 100vw;
+      height: 100vh;
+       /* transform: scale(0.9); */  
+      transform-origin: top center;
     }
   </style>
 </head>
 <body>
-  <h2>🔄 Đang mở dashboard phù hợp với thiết bị của bạn...</h2>
+  <iframe 
+    src="https://app.powerbi.com/view?r=eyJrIjoiYmRiNGZlNTgtMGI2OS00OWYyLThjMjYtY2E3YjZkMmZlNTExIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true" 
+    allowfullscreen>
+  </iframe>
 </body>
 </html>
