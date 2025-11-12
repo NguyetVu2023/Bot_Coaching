@@ -4,27 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Web</title>
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        background-color: #0b2741;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      iframe {
-        width: 95vw;
-        height: 95vh;
-        border: none;
-        border-radius: 10px;
-      }
-    </style>
+    <script>
+      // Chuyển hướng bằng JavaScript
+      window.onload = function () {
+        window.location.replace(
+          "https://app.powerbi.com/view?r=eyJrIjoiZjRlMzE5ODAtYzQ2MS00NjU5LWE5MjgtZDQxMmYyZGNkYzBkIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true"
+        );
+      };
+    </script>
   </head>
-  <body>
-    <iframe
-      src="https://app.powerbi.com/view?r=eyJrIjoiZjRlMzE5ODAtYzQ2MS00NjU5LWE5MjgtZDQxMmYyZGNkYzBkIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true"
-      allowfullscreen
-    ></iframe>
+  <body style="font-family: Arial, sans-serif; text-align: center; padding-top: 40px;">
+    <p>🔄 Đang mở dashboard web, vui lòng chờ giây lát...</p>
   </body>
 </html>
