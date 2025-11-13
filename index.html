@@ -12,19 +12,31 @@
       overflow: hidden;
       background: #001F3F;
     }
-    iframe {
-      border: none;
+
+    .wrapper {
       width: 100vw;
       height: 100vh;
-       /* transform: scale(0.9); */  
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+
+    iframe {
+      border: none;
+      width: 130vw;   /* tăng chiều rộng báo cáo */
+      height: 130vh;  /* tăng chiều cao báo cáo */
+      transform: scale(0.77);  /* thu nhỏ lại vừa khớp màn hình */
       transform-origin: top center;
     }
   </style>
 </head>
 <body>
-  <iframe 
-    src="https://app.powerbi.com/view?r=eyJrIjoiZWVkMDIyYTMtMmEzZi00NzdiLWIzYTItZWQyMWVhYzdkNDEwIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true" 
-    allowfullscreen>
-  </iframe>
+  <div class="wrapper">
+    <iframe 
+      src="https://app.powerbi.com/view?r=eyJrIjoiZWVkMDIyYTMtMmEzZi00NzdiLWIzYTItZWQyMWVhYzdkNDEwIiwidCI6ImE0OWExODJkLWNmYTItNDkyYy05YzViLTQwYzQyYzU1NzFiMyIsImMiOjEwfQ%3D%3D&chromeless=true"
+      allowfullscreen>
+    </iframe>
+  </div>
 </body>
 </html>
